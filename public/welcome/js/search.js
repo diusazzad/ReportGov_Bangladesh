@@ -1,6 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // Handle form submission
-    $('#search-form').submit(function(event) {
+    $('#search-form').submit(function (event) {
         event.preventDefault(); // Prevent the form from submitting normally
 
         // Get the form data
@@ -11,14 +11,15 @@ $(document).ready(function() {
             url: '/search', // Replace with the actual search endpoint URL
             type: 'GET',
             data: formData,
-            success: function(response) {
+            success: function (response) {
                 // Handle the search results
                 // Update the UI with the search results
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 // Handle the error
                 console.error(error);
             }
         });
     });
 });
+

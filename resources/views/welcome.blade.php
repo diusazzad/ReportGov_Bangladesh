@@ -10,6 +10,9 @@
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     @vite('resources/css/app.css', 'resources/js/app.js')
 
@@ -17,10 +20,11 @@
 
 <body class="">
     <div>
-        <x-welcome.nav-bar/>
+        <x-welcome.nav-bar />
     </div>
     <div class="" id="searchBar">
-        <x-welcome.search/>
+
+        @extends('search')
     </div>
 </body>
 
