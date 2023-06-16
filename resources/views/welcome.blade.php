@@ -19,13 +19,11 @@
 </head>
 
 <body class="">
+    {{-- @extends('search') --}}
     <div>
         <x-welcome.nav-bar />
     </div>
-    <div class="" id="searchBar">
 
-        @extends('search')
-    </div>
 </body>
 
 

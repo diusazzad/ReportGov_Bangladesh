@@ -19,11 +19,14 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call(DivisionSeeder::class);
-        $this->call(DistrictSeeder::class);
-        $this->call(UpazilaSeeder::class);
-        $this->call(ThanaSeeder::class);
-        $this->call(UnionSeeder::class);
+        // $this->call(DivisionSeeder::class);
+        // $this->call(DistrictSeeder::class);
+        // $this->call(UpazilaSeeder::class);
+        // $this->call(ThanaSeeder::class);
+        // $this->call(UnionSeeder::class);
+
+        $this->call(AdminSeeder::class);
+        $this->call(RoleSeeder::class);
 
     }
 }
