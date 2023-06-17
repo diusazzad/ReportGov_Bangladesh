@@ -12,12 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('districts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('division_id');
+            $table->bigIncrements('id');
+            $table->foreignId('division_id')->constrained('divisions');
             $table->string('name');
             $table->timestamps();
-
-            $table->foreign('division_id')->references('id')->on('divisions');
         });
     }
 

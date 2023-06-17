@@ -43,4 +43,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    protected $connection = 'reportgovbd';
+
+    // relationship
+    public function personalInfo(){
+        return $this->hasOne(UsersPersonalInfo::class);
+    }
 }

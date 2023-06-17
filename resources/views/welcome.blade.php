@@ -14,13 +14,12 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    @vite('resources/css/app.css', 'resources/js/app.js')
-
+    @vite('resources/css/app.css','resource/js/app.js')
 </head>
 
 <body class="">
     {{-- @extends('search') --}}
-    <div>
+    <div class="" id="app">
         <x-welcome.nav-bar />
     </div>
 

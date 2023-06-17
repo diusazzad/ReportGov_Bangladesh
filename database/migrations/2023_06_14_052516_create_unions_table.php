@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('unions', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('thana_id');
-        $table->foreign('thana_id')->references('id')->on('thanas');
+        $table->bigIncrements('id');
+        $table->foreignId('thana_id')->constrained('thanas');
         $table->string('name');
         $table->timestamps();
         });

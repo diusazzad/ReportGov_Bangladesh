@@ -12,11 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('upazilas', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('district_id');  // corresponds to ['district_id' => '01', ...]
-            $table->unsignedBigInteger('division_id'); // Add the 'division_id' column
-            $table->foreign('district_id')->references('id')->on('districts');
-            $table->foreign('division_id')->references('id')->on('divisions'); // Add foreign key constraint for 'division_id'
+            $table->bigIncrements('id');
+            $table->foreignId('district_id')->constrained('districts');
             $table->string('name');
             $table->timestamps();
         });

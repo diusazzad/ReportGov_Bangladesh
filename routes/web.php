@@ -1,34 +1,38 @@
 <?php
 
-use App\Http\Controllers\Admin\PermisssionController;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\SearchController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
-// welcome page
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/search', [SearchController::class, 'search'])->name('search');
-
-
-
-Auth::routes();
-// auth
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// admin
-Route::middleware(['auth', 'role:admin'])->name('admin')->prefix('admin')->group(function () {
-    // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('index');
-    // Route::resource('/roles', RoleController::class);
-    // Route::resource('/permisssions', PermisssionController::class);
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
-Route::get('/writer', [App\Http\Controllers\HomeController::class, 'writer'])->middleware('auth', 'role:writer')->name('writer.index');
-Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->middleware('auth', 'role:user')->name('user.index');
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-
-// test
-Route::resource('/roles', RoleController::class);
-Route::resource('/permissions', PermisssionController::class);
+require __DIR__.'/auth.php';
