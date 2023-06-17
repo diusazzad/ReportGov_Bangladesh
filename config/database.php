@@ -35,6 +35,24 @@ return [
 
     'connections' => [
 
+
+        'reportgovbd' => [
+            'driver' => 'mysql',
+            'host' => env('DB_REPORTGOVBD_HOST', '127.0.0.1'),
+            'port' => env('DB_REPORTGOVBD_PORT', '3306'),
+            'database' => env('DB_REPORTGOVBD_DATABASE', 'reportgovbd'),
+            'username' => env('DB_REPORTGOVBD_USERNAME', 'root'),
+            'password' => env('DB_REPORTGOVBD_PASSWORD', ''),
+        ],
+        'reportgovbd_a' =>[
+            'driver' => 'mysql',
+            'host' => env('DB_REPORTGOVBD_A_HOST', '127.0.0.1'),
+            'port' => env('DB_REPORTGOVBD_A_PORT', '3306'),
+            'database' => env('DB_REPORTGOVBD_A_DATABASE', 'reportgovbda'),
+            'username' => env('DB_REPORTGOVBD_A_USERNAME', 'root'),
+            'password' => env('DB_REPORTGOVBD_A_PASSWORD', ''),
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
