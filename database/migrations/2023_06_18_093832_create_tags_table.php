@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::connection('reportgovbd')->create('tags', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_tags')->constrained('users');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tags');
+        Schema::connection('reportgovbd')->dropIfExists('tags');
     }
 };

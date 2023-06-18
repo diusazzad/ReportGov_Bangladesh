@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('following_relationships', function (Blueprint $table) {
+        Schema::connection('reportgovbd')->create('following_relationships', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_relationships')->constrained('users');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('following_relationships');
+        Schema::connection('reportgovbd')->dropIfExists('following_relationships');
     }
 };

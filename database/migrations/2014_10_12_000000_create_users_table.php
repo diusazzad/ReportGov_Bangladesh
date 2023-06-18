@@ -21,6 +21,19 @@ return new class extends Migration
             $table->unsignedBigInteger('infos');
             $table->unsignedBigInteger('deviceinfo');
             $table->unsignedBigInteger('tasks');
+            $table->unsignedBigInteger('notification_setting');
+            $table->unsignedBigInteger('external_accounts');
+            $table->unsignedBigInteger('profiles');
+            $table->unsignedBigInteger('relationships');
+            $table->unsignedBigInteger('posts');
+            $table->unsignedBigInteger('post_favorites');
+            $table->unsignedBigInteger('post_comments');
+            $table->unsignedBigInteger('post_stats');
+            $table->unsignedBigInteger('tags');
+            $table->unsignedBigInteger('post_tags');
+            $table->unsignedBigInteger('post_categories');
+            $table->unsignedBigInteger('categories');
+            $table->unsignedBigInteger('user_locations');
 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -32,6 +45,12 @@ return new class extends Migration
             $table->index('infos');  //left join with userdeviceinfo
             $table->index('deviceinfo');
             $table->index('tasks');
+            $table->index('notification_setting');
+            $table->index('external_accounts');
+
+
+            // foriegn key
+            // $table->foreignId('division_id')->constrained('divisions');
         });
 
         // $users = DB::table('users')

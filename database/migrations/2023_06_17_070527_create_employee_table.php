@@ -24,9 +24,10 @@ return new class extends Migration
 
 
             // add index
-            $table->index('infos');
-            $table->index('deviceinfo');
-            $table->index('tasks');
+            $table->index('id');
+            // foreign id
+
+
         });
     }
 

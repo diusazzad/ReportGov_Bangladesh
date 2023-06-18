@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_settings', function (Blueprint $table) {
-            $table->id();
+        Schema::connection('reportgovbd')->create('user_settings', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->enum('notification_new',['on','off']);
+            $table->enum('notification_followers',['on','off']);
+            $table->enum('notification_comments',['on','off']);
+            $table->enum('notification_message',['on','off']);
+            $table->foreignId('user_notification_setting')->constrained('users');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_settings');
+        Schema::connection('reportgovbd')->dropIfExists('user_settings');
     }
 };

@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('external_accounts', function (Blueprint $table) {
-            $table->id();
+        Schema::connection('reportgovbd')->create('external_accounts', function (Blueprint $table) {
+            $table->integer('user_id');
+            $table->ipAddress('facebook_email');
+            $table->ipAddress('twitter_email');
+            $table->foreignId('user_external_account')->constrained('users');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('external_accounts');
+        Schema::connection('reportgovbd')->dropIfExists('external_accounts');
     }
 };

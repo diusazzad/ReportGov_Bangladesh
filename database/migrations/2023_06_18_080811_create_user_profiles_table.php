@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_profiles', function (Blueprint $table) {
-            $table->id();
+        Schema::connection('reportgovbd')->create('user_profiles', function (Blueprint $table) {
+            $table->integer('user_id');
+            $table->integer('name');
+            $table->foreignId('user_profiles')->constrained('users');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_profiles');
+        Schema::connection('reportgovbd')->dropIfExists('user_profiles');
     }
 };

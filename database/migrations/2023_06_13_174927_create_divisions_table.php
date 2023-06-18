@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('divisions', function (Blueprint $table) {
+        Schema::connection('reportgovbd')->create('divisions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->unsignedBigInteger('name');
+            $table->unsignedBigInteger('division_code');
+
             $table->timestamps();
-            $table->index('id');
+            // index
+            $table->index('division_code');
+            
         });
     }
 

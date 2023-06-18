@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::connection('reportgovbd')->create('categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_post_categories')->constrained('users');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::connection('reportgovbd')->dropIfExists('categories');
     }
 };

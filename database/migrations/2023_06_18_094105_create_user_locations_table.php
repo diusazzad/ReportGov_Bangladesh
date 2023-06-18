@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_locations', function (Blueprint $table) {
+        Schema::connection('reportgovbd')->create('user_locations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_user_locations')->constrained('users');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_locations');
+        Schema::connection('reportgovbd')->dropIfExists('user_locations');
     }
 };

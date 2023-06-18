@@ -34,3 +34,7 @@ Contains columns: id, user_id, employee_id, report_message, created_at, updated_
 Primary key: id.
 Foreign keys: user_id references the id column in the users table, employee_id references the id column in the employees table.
 Additional column: report_message to store details about the report.
+
+
+
+https://i.stack.imgur.com/98wSu.png
