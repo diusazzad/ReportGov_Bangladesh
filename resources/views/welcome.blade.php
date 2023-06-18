@@ -7,23 +7,24 @@
 
     <title>Laravel</title>
 
-
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    @vite('resources/css/app.css','resource/js/app.js')
+    {{-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> --}}
+
 </head>
 
-<body class="">
-    {{-- @extends('search') --}}
-    <div class="" id="app">
-        <x-welcome.nav-bar />
+<body>
+
+    <div id="app">
+
     </div>
 
-</body>
 
+
+</body>
 
 </html>

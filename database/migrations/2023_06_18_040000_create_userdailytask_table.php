@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::connection('reportgovbd')->create('employeedailytask', function (Blueprint $table) {
+
+        Schema::connection('reportgovbd')->create('userdailytask', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
             $table->boolean('completed')->default(false);
             $table->timestamps();
-            $table->foreignId('employee_tasks')->constrained('employees');
+            $table->foreignId('user_tasks')->constrained('users');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employeedailytask');
+        Schema::connection('reportgovbd')->dropIfExists('userdailytask');
     }
 };

@@ -50,4 +50,5 @@ class User extends Authenticatable
     public function personalInfo(){
         return $this->hasOne(UsersPersonalInfo::class);
     }
+
 }

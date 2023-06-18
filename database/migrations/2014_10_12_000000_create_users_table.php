@@ -13,25 +13,30 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('users', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name');
-        //     $table->string('email')->unique();
-        //     $table->timestamp('email_verified_at')->nullable();
-        //     $table->string('password');
-        //     $table->rememberToken();
-        //     $table->timestamps();
-        // });
 
-        // Schema::connection('reportgovbd')->table('users', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name');
-        //     $table->string('email')->unique();
-        //     $table->timestamp('email_verified_at')->nullable();
-        //     $table->string('password');
-        //     $table->rememberToken();
-        //     $table->timestamps();
-        // });
+        Schema::connection('reportgovbd')->create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+
+            $table->unsignedBigInteger('infos');
+            $table->unsignedBigInteger('deviceinfo');
+            $table->unsignedBigInteger('tasks');
+
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+
+            // add index
+            $table->index('infos');  //left join with userdeviceinfo
+            $table->index('deviceinfo');
+            $table->index('tasks');
+        });
+
+        // $users = DB::table('users')
+        // ->leftJoin('userdeviceinfo', 'users.infos', '=', 'userdeviceinfo.user_deviceinfo')
+        // ->get();
     }
 
     /**
@@ -39,13 +44,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        // Schema::table('users', function (Blueprint $table) {
-            // Drop foreign key
-            // $table->dropForeign(['user_id']);
-
-            // Drop additional columns
-            // $table->dropColumn(['fullname', 'surname', 'national_id']);
-        // });
+        Schema::connection('reportgovbd')->dropIfExists('users');
     }
 };
