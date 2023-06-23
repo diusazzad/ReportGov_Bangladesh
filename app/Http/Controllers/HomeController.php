@@ -14,6 +14,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // $this->redirect('/home');
     }
 
     /**
@@ -25,17 +26,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function admin(){
-        return view('role.admin.role.index');
-    }
-
-    public function writer(){
-        return view('role.writer.index');
-    }
-
-    public function user(){
-        return view('role.user.index');
-    }
-
 }

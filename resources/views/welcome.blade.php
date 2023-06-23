@@ -13,30 +13,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    {{-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> --}}
-    @vite('resources/css/app.css', 'resources/js/app.js')
-    <script src="//unpkg.com/alpinejs" defer></script>
-
-
+    @vite('resources/css/app.css')
 </head>
 
 <body>
 
-    <div class="" id="">
-        <x-welcome.nav-bar/>
-    </div>
-    <div class="">
-        <x-welcome.search/>
-    </div>
-    <div>
-        <x-welcome.accordion/>
-    </div>
-    <div>
-        <x-welcome.cards/>
-    </div>
-    <div>
-        <x-welcome.contactus/>
-    </div>
 
 </body>
 

@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,27 +20,28 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    // return Inertia::render('Welcome', [
-    //     'canLogin' => Route::has('login'),
-    //     'canRegister' => Route::has('register'),
-    //     'laravelVersion' => Application::VERSION,
-    //     'phpVersion' => PHP_VERSION,
-    // ]);
+
 
     return view('welcome');
+    // return view('admin.home');
 });
 
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [UserController::class, 'login'])->name('login.submit');
+Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [UserController::class, 'register'])->name('register.submit');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// user dashboard
+Route::get('/user/dashboard', [UserController::class, 'userDashboard'])->name('user.dashboard');
+
+
+// Add the logout route
+// Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+
+
+
+// fallback routes
+Route::fallback(function () {
+    return view('error');
 });
-
-
-//
-
-require __DIR__.'/auth.php';

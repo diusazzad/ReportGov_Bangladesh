@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::connection('reportgovbd_a')->create('test', function (Blueprint $table) {
+        Schema::connection('reportgovbd')->create('divisions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->unsignedBigInteger('name');
+            $table->unsignedBigInteger('division_code');
+            $table->foreignId('user_division')->constrained('users');
             $table->timestamps();
+            // index
+            $table->index('division_code');
+
         });
     }
 
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::connection('reportgovbd_a')->dropIfExists('test');
+        Schema::connection('reportgovbd')->dropIfExists('divisions');
     }
 };
