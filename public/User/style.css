@@ -1,0 +1,21 @@
+/* SideNav */
+
+
+/* Main  */
+#mainAA {
+    background-color: hsl(289.71, 39.33%, 34.9%);
+}
+
+#mainAB {
+    background-color: hsl(185.63, 43.24%, 70.98%);
+}
+
+#mainAC {
+    background-color: hsl(15.95, 97.74%, 65.29%);
+}
+
+
+/* Calender */
+#calender {
+    background-color: hsla(32, 73%, 70%, 0.334);
+}

@@ -23,10 +23,10 @@ class UserController extends Controller
 
             if ($user->hasRole('admin')) {
                 // return redirect()->route('admin.dashboard');
-                return view('admin.dashboard');
+                return view('auth.admin.dashboard');
             } else {
                 // return redirect()->route('user.dashboard');
-                return view('user.dashboard');
+                return view('auth.user.dashboard');
             }
         } else {
             return redirect()->route('login')
