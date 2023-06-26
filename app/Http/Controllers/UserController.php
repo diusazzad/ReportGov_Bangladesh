@@ -5,14 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
 {
-    public function showLoginForm(){
+    public function showLoginForm()
+    {
         return view('auth.login');
     }
+    public function adminDashboard()
+    {
+        // Logic for admin dashboard
+        return view('auth.admin.dashboard');
+    }
 
-    public function login(Request $request){
+    public function userDashboard()
+    {
+        // Logic for user dashboard
+        return view('auth.user.dashboard');
+    }
+
+
+    public function login(Request $request)
+    {
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -21,12 +36,11 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
-            if ($user->hasRole('admin')) {
-                // return redirect()->route('admin.dashboard');
-                return view('auth.admin.dashboard');
+            if ($user->role == 'admin') {
+                // return redirect()->route('auth.admin.dashboard');
+                return redirect()->to('/admin/dashboard');
             } else {
-                // return redirect()->route('user.dashboard');
-                return view('auth.user.dashboard');
+                return redirect()->to('/user/dashboard');
             }
         } else {
             return redirect()->route('login')
@@ -36,11 +50,13 @@ class UserController extends Controller
 
 
 
-    public function showRegistrationForm(){
+    public function showRegistrationForm()
+    {
         return view('auth.register');
     }
 
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
@@ -58,15 +74,27 @@ class UserController extends Controller
         return redirect()->route('login')->with('success', 'Registration successful. Please log in.');
     }
 
-    // public function logout(Request $request)
-    // {
-    //     Auth::logout();
+    public function logout()
+    {
+        Auth::logout();
 
-    //     $request->session()->invalidate();
+        return redirect('/');
+    }
 
-    //     $request->session()->regenerateToken();
+    // Admin Part
+    public function tableindex()
+    {
+        $users = User::select('name', 'role')->get();
 
-    //     return redirect('/login')->with('success', 'Logged out successfully.');
-    // }
+        return view('auth.admin.dashboard', compact('users'));
+    }
+    // Paginate
+    public function adminPaginate()
 
+    {
+
+        $data = User::paginate(5);
+
+        return view('auth.admin.dashboard', compact('data'));
+    }
 }

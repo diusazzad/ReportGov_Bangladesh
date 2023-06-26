@@ -15,7 +15,7 @@
 </head>
 
 <body class="">
-
+    <div>welcome </div>
     <div class="" >
         <example />
         <a href=""></a>
@@ -28,7 +28,7 @@
                     <a href="{{ route('login') }}" class="">Log in</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="">Register</a>
+                    <a href="{{ url('/logout') }}" class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Log out</a>
                     @endif
                 @endauth
             </div>

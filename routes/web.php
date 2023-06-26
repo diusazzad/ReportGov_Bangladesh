@@ -32,12 +32,12 @@ Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [UserController::class, 'register'])->name('register.submit');
 
 // user dashboard
-Route::get('/user/dashboard', [UserController::class, 'userDashboard'])->name('user.dashboard');
+Route::get('/user/dashboard', [UserController::class, 'userDashboard'])->name('auth.user.dashboard');
+// Admin Dashboard
+Route::get('/admin/dashboard', [UserController::class, 'adminDashboard'])->name('auth.admin.dashboard');
 
 
-// Add the logout route
-// Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
+Route::post('/logout', [UserController::class, 'logout'])->name('auth.logout');
 
 
 
