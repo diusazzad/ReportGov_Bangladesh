@@ -28,136 +28,85 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="">
-    <div>hello welcome</div>
-    <div class="flex flex-row">
-        {{-- SideBar --}}
-        <div class="flex flex-col h-screen w-74 bg-gray-800 text-white w-1/5 m-2 rounded-3xl drop-shadow-2xl p-2"
-            id="sideNav">
-            <div class="flex items-center justify-center h-20 border-b border-gray-700" id="logo">Logo</div>
-            <div class="py-4 pl-10" id="mainMenu">
-                <ul class="flex flex-col gap-10">
-                    <li class=" hover:bg-gray-700 flex items-center">
-                        <span class="material-symbols-outlined">dashboard_customize</span>
-                        <a href="#" class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Dashboard</a>
-                    </li>
+<body class="m-1 p-1">
+    <div class="border" id="main">
 
-                    <li class=" hover:bg-gray-700 flex items-center">
-                        <span class="material-symbols-outlined">person</span>
-                        <a href="#" class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Users</a>
-                    </li>
-                    <li class=" hover:bg-gray-700 flex items-center">
-                        <span class="material-symbols-outlined">
-                            account_box
-                        </span>
-                        <a href="#" class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Accounts</a>
-                    </li>
-                    <li class="hover:bg-gray-700 flex items-center">
-                        <span class="material-symbols-outlined">
-                            monitoring
-                        </span>
-                        <a href="#" class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Statistics</a>
-                    </li>
-
-                </ul>
+        <div class="grid grid-cols-5 gap-1" id="nav">
+            <div class="border p-1 col-span-1" id="navLogo">logo</div>
+            <div class="p-1 col-span-3" id="navFeatures">
+                <a href="">Feature</a>
+                <a href="">Resource</a>
+                <a href="">Donate</a>
+                <a href="">Education</a>
             </div>
-            <div class="py-4 pl-10" id="teams">
-                <li class=" hover:bg-gray-700 flex items-center">
-                    <span class="material-symbols-outlined">
-                        deployed_code
-                    </span>
-                    <a href="#" class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Development</a>
-                </li>
-            </div>
-            <div class="flex-grow"></div>
-            <div class="" id="bottomMenu">
-                <ul class="space-y-2 pl-10">
-                    <li class=" hover:bg-gray-700 flex items-center">
-                        <span class="material-symbols-outlined">
-                            local_library
-                        </span>
-                        <a href="#" class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Salary</a>
-                    </li>
-                    <li class="hover:bg-gray-700 flex items-center">
-                        <span class="material-symbols-outlined">
-                            settings
-                        </span>
-                        <a href="#" class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Setting</a>
-                    </li>
-
-                    {{-- Logout  --}}
-                    <li class="hover:bg-gray-700 flex items-center">
-                        <span class="material-symbols-outlined">
-                            toggle_off
-                        </span>
-                        <a href="{{ url('/logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                            class="hover:bg-gray-300 hover:underline hover:text-cyan-500">Log out</a>
-                    </li>
-
-                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-
-
-
-
-                </ul>
+            <div class="border p-1 col-span-1" id="navLogin">
+                <a href="">Login</a>
+                <a href="">Register</a>
             </div>
         </div>
 
-        {{-- Main Menu --}}
-        <main class=" h-screen bg-gray-100 w-9/12 m-2 rounded-3xl drop-shadow-2xl p-2" id="">
-            <div class="flex items-center justify-between p-4 bg-white" id="topNav">
-                <h1 class="text-xl font-bold">Hello, Admin</h1>
-                <h1 class="text-xl font-bold">Profile</h1>
-            </div>
-            <div class="p-4" id="work">
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white p-4 rounded-lg shadow h-96">Work 1</div>
-                    <div class="bg-white p-4 rounded-lg shadow h-96">Work 2</div>
-                    <div class="bg-white p-4 rounded-lg shadow h-96">Work 3</div>
-                    <div class="bg-white p-4 rounded-lg shadow h-96">Work 4</div>
+
+
+        {{-- Layout A --}}
+        <div class="border m-1 p-1" id="layoutA">
+            <div class="border grid grid-cols-2" id="layoutAA">
+                <div class="text-center gap-4" id="layoutAAA">
+                    <h1>Welcome to Report Gov Bangladesh</h1>
+                    <p class="">The Idea is to help the people
+                        in bangladesh, where they can have goverment services
+                        with right freedom.If any service they do not get in the
+                        right time they can report to the goverment.
+                    </p>
+
+                    <input class="border-2 border-black" type="text">
+                    <button class="border">Submit</button>
+                </div>
+
+                <div class="border" id="layoutAAB">
+                    <img class="h-fit w-fit rounded-lg shadow-lg object-cover" src="{{ asset('welcome/img/b.jpg') }}" alt="" >
+
                 </div>
             </div>
 
-            <div class="p-4" id="">
-                <h1 class="text-2xl font-bold mb-4">Recent Activity</h1>
-                <div class="bg-white p-4 rounded-lg shadow ">
-                    <!--Card-->
-                    <div id='recipients' class="p-1 mt-1 lg:mt-0 rounded shadow bg-white ">
-                        <div class="mb-4">
-                            <input type="text" id="search" class="border border-gray-500 rounded px-4 py-2"
-                                placeholder="Search...">
-                        </div>
-                        <table id="example" class="stripe hover"
-                            style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                            <!-- Rest of your table code -->
-                        </table>
-                    </div>
-                    <!--/Card-->
-                    <div class="bg-zinc-200 mt-4 p-2 rounded-md h-44">
-                        <table id="example" class="stripe hover w-full pt-4 pb-4">
-                            <thead>
-                                <tr>
-                                    <th data-priority="1">Name</th>
-                                    <th data-priority="2">Role</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    {{-- <td>{{ $user->name }}</td> --}}
-                                    {{-- <td>{{ $user->role }}</td> --}}
-                                </tr>
-                            </tbody>
-                        </table>
+        </div>
 
-                    </div>
+        <div class="grid grid-cols-4 ">
+            <div class="">
+                <div class="">
+                    <div>icon</div>
+                    <div>Shared Inbox</div>
+                    <div>Message</div>
+                </div>
+
+            </div>
+            <div class="">
+                <div class="">
+                    <div>icon</div>
+                    <div>Shared Inbox</div>
+                    <div>Message</div>
                 </div>
             </div>
-        </main>
+            <div class="">
+                <div class="">
+                    <div>icon</div>
+                    <div>Shared Inbox</div>
+                    <div>Message</div>
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <div>icon</div>
+                    <div>Shared Inbox</div>
+                    <div>Message</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center h-40 border items-center">
+            What you Can do with ReportGovBD
+        </div>
+
     </div>
+
 </body>
 
 </html>
-

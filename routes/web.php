@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -19,12 +20,15 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-
-
-    return view('welcome');
+// Route::get('/', function () {
+    // return view('welcome');
     // return view('admin.home');
-});
+// });
+
+Route::get('/', [ContentController::class, 'index']);
+
+
+
 
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UserController::class, 'login'])->name('login.submit');

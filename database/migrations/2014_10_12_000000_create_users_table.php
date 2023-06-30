@@ -13,19 +13,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        Schema::connection('reportgovbd')->create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-
-            $table->string('role')->default('user');
-
-        });
+        // Schema::connection('reportgovbd')->create('users', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->string('name');
+        //     $table->string('email')->unique();
+        //     $table->timestamp('email_verified_at')->nullable();
+        //     $table->string('password');
+        //     $table->rememberToken();
+        //     $table->string('role')->default('user');
+        //     $table->timestamps();
+        // });
 
     }
 
