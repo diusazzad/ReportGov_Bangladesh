@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\taskController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -35,17 +37,23 @@ Route::post('/login', [UserController::class, 'login'])->name('login.submit');
 Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [UserController::class, 'register'])->name('register.submit');
 
+
+
 // user dashboard
 Route::get('/user/dashboard', [UserController::class, 'userDashboard'])->name('auth.user.dashboard');
 // Admin Dashboard
 Route::get('/admin/dashboard', [UserController::class, 'adminDashboard'])->name('auth.admin.dashboard');
-
+// Task Management
+Route::resource('/tasks', taskController::class);
 
 Route::post('/logout', [UserController::class, 'logout'])->name('auth.logout');
 
+// Database Test
+Route::get('/dbtest',[databaseController::class,'test']);
 
 
 // fallback routes
 Route::fallback(function () {
     return view('error');
 });
+
