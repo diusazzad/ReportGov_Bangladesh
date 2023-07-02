@@ -25,13 +25,14 @@
 
     {{-- Custom --}}
     <link rel="stylesheet" href={{ asset('User/style.css') }}>
+    <link rel="stylesheet" href="{{ asset('welcome/css/style.css') }}">
     @vite('resources/css/app.css')
 </head>
 
 <body class="m-1 p-1">
-    <div class="border" id="main">
+    <div class="border text-white" id="main">
 
-        <div class="grid grid-cols-5 gap-1" id="nav">
+        <div class="grid grid-cols-5 gap-1 text-1xl " id="nav">
             <div class="border p-1 col-span-1" id="navLogo">logo</div>
             <div class="p-1 col-span-3" id="navFeatures">
                 <a href="">Feature</a>
@@ -48,11 +49,11 @@
 
 
         {{-- Layout A --}}
-        <div class="border m-1 p-1" id="layoutA">
+        <div class="border m-1 p-1 items-center" id="layoutA">
             <div class="border grid grid-cols-2" id="layoutAA">
-                <div class="text-center gap-4" id="layoutAAA">
-                    <h1>Welcome to Report Gov Bangladesh</h1>
-                    <p class="">The Idea is to help the people
+                <div class="text-center gap-4 " id="layoutAAA">
+                    <h1 class="text-5xl">Welcome to Report Gov Bangladesh</h1>
+                    <p class="text-3xl">The Idea is to help the people
                         in bangladesh, where they can have goverment services
                         with right freedom.If any service they do not get in the
                         right time they can report to the goverment.
@@ -70,7 +71,7 @@
 
         </div>
 
-        <div class="grid grid-cols-4 ">
+        <div class="grid grid-cols-4 text-4xl">
             <div class="">
                 <div class="">
                     <div>icon</div>
@@ -101,7 +102,7 @@
                 </div>
             </div>
         </div>
-        <div class="text-center h-40 border items-center">
+        <div class="text-center text-black text-5xl h-40 border items-center">
             What you Can do with ReportGovBD
         </div>
 

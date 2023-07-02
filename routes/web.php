@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\taskController;
+use App\Http\Controllers\Admin\TodoController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\HomeController;
@@ -45,6 +46,8 @@ Route::get('/user/dashboard', [UserController::class, 'userDashboard'])->name('a
 Route::get('/admin/dashboard', [UserController::class, 'adminDashboard'])->name('auth.admin.dashboard');
 // Task Management
 Route::resource('/tasks', taskController::class);
+// Todo Management
+Route::resource('todos', TodoController::class);
 
 Route::post('/logout', [UserController::class, 'logout'])->name('auth.logout');
 

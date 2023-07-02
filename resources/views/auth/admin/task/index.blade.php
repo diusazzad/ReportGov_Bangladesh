@@ -1,41 +1,36 @@
-<x-table.table-panel tableName="Tasks" :paginatorAttr="$tasks">
-    <div class="container flex items-center">
-        <form method="GET" action="/task">
-            <x-form.input inputName="search" type="date" value="{{ request('search') }}"/>
-            <x-form.button  buttonName="search" class=""/>
-        </form>
+@extends('layouts/app')
 
-        <form method="GET" action="/task" class="mr-5">
-            <x-form.input inputName="searchbody" value="{{ request('search') }}"/>
-            <x-form.button  buttonName="search"/>
-        </form>
-    </div>
-    <thead>
-        <tr>
-            <x-table.table-head thName="Date Created" />
-            <x-table.table-head thName="Task Name" />
-            <x-table.table-head thName="Created By" />
-            <x-table.table-head thName="Assigned to" />
-            <x-table.table-head thName="Due" />
-            <x-table.table-head thName="Completed" />
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($tasks as $task)
-            <tr class="hover:bg-grey-lighter">
-                <x-table.table-data tdName="{{ date_format($task->created_at, 'd/m/Y') }}" />
-                <td class="py-4 px-6 border-b border-grey-light">
-                    <a href="/task/{{$task->id}}" class="underline"> {{ ucwords($task->title) }}</a>
-                </td>
-                <x-table.table-data tdName="{{ $task->getTaskCreatorUser()}}" />
-                <x-table.table-data tdName="{{ $task->getAssignedUser() }}" />
-                <x-table.table-data tdName="{{date('d/m/Y', strtotime($task->due))}}" />
-                @if($task->completed)
-                 <x-table.table-data tdName="Yes" />
-                @else
-                <x-table.table-data tdName="No" />
-                @endif
-            </tr>
-        @endforeach
-    </tbody>
-</x-table.table-panel>
+@section('title')
+    Todos Lists
+@endsection
+
+@section('content')
+
+            <h1 class="text-center py-5">TODOS</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                        <div class="card border-primary">
+                                <div class="card-header bg-secondary text-center">
+                                    Tasks List
+                                </div>
+                                <div class="card-body">
+                                     <ul class="list-group">
+                                             @foreach ($todos as $todo)
+                                             @if (!$todo->completed)
+                                                <li class="list-group-item list-group-item-action">
+                                                    {{ $todo->name }}
+
+                                                    <a href="/todos/{{$todo->id}}/complete" class="btn btn-warning btn-sm ml-2 float-right">Complete</a>
+
+                                                <a href="/todos/{{$todo->id}}" class="btn btn-primary btn-sm float-right">View</a>
+                                                </li>
+                                             @endif
+                                             @endforeach
+                                         </ul>
+                                </div>
+                            </div>
+                </div>
+            </div>
+
+
+@endsection
