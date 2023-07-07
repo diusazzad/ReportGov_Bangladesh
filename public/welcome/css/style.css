@@ -1,5 +1,21 @@
-#main{
-    background-image: url('../img/bg/bg.svg');
-    background-repeat: no-repeat ;
-    background-size: cover;
+#main {
+    background: rgb(162,162,162);
+    background: linear-gradient(180deg, rgba(162,162,162,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+/*  */
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 5s steps(40) 1s 1 normal both;
 }

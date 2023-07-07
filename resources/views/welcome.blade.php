@@ -26,21 +26,27 @@
     {{-- Custom --}}
     <link rel="stylesheet" href={{ asset('User/style.css') }}>
     <link rel="stylesheet" href="{{ asset('welcome/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('welcome/css/cursor.css') }}">
+
+    <script src="{{ asset('welcome/js/cursor.js') }}"></script>
     @vite('resources/css/app.css')
 </head>
 
 <body class="m-1 p-1">
-    <div class="border text-white" id="main">
+    {{-- <div class="container">
+        <div class="cursor"></div>
+      </div> --}}
+    <div class=" text-white shadow-lg container" id="main">
 
-        <div class="grid grid-cols-5 gap-1 text-1xl " id="nav">
-            <div class="border p-1 col-span-1" id="navLogo">logo</div>
+        <div class="grid grid-cols-5 gap-1 text-2xl text-slate-950 font-mono" id="nav">
+            <div class=" p-1 col-span-1" id="navLogo">logo</div>
             <div class="p-1 col-span-3" id="navFeatures">
                 <a href="">Feature</a>
                 <a href="">Resource</a>
                 <a href="">Donate</a>
                 <a href="">Education</a>
             </div>
-            <div class="border p-1 col-span-1" id="navLogin">
+            <div class=" p-1 col-span-1" id="navLogin">
                 <a href="">Login</a>
                 <a href="">Register</a>
             </div>
@@ -49,61 +55,81 @@
 
 
         {{-- Layout A --}}
-        <div class="border m-1 p-1 items-center" id="layoutA">
-            <div class="border grid grid-cols-2" id="layoutAA">
-                <div class="text-center gap-4 " id="layoutAAA">
-                    <h1 class="text-5xl">Welcome to Report Gov Bangladesh</h1>
-                    <p class="text-3xl">The Idea is to help the people
-                        in bangladesh, where they can have goverment services
-                        with right freedom.If any service they do not get in the
-                        right time they can report to the goverment.
-                    </p>
+        <div class=" m-1 p-1 items-center " id="layoutA">
+            <div class=" grid grid-cols-1" id="layoutAA">
+                <div class="text-center h-72 flex justify-center items-center"
+                    id="layoutAAA">
+                    <div class="">
+                        <h1 class="text-5xl p-1 typing-effect text-">Welcome to Report Gov Bangladesh</h1>
+                        <p class="text-3xl">The Idea is to help the people
+                            in bangladesh, where they can have goverment services
+                            with right freedom.If any service they do not get in the
+                            right time they can report to the goverment.
+                        </p>
 
-                    <input class="border-2 border-black" type="text">
-                    <button class="border">Submit</button>
+                        <input class="shadow-2xl border-black rounded-3xl w-1/2 m-1" type="text"><br>
+                        <button class="shadow-lg rounded hover:bg-gray-900 p-3">Submit</button>
+                    </div>
+
                 </div>
 
-                <div class="border" id="layoutAAB">
-                    <img class="h-fit w-fit rounded-lg shadow-lg object-cover" src="{{ asset('welcome/img/b.jpg') }}" alt="" >
+                <div class=" flex place-content-center h-96 w-full" id="layoutAAB">
+
+                    <img class="h-96 w-2/5 rounded-lg shadow-lg bg-cover" src="{{ asset('welcome/img/b.jpg') }}"
+                        alt="">
+
 
                 </div>
             </div>
 
         </div>
 
-        <div class="grid grid-cols-4 text-4xl">
-            <div class="">
-                <div class="">
-                    <div>icon</div>
-                    <div>Shared Inbox</div>
-                    <div>Message</div>
+        <div
+            class="grid grid-cols-4 text-3xl m-3 p-1 text-black italic font-sans tracking-widest uppercase bg-gradient-to-r from-indigo-200 from-10% via-sky-100 via-40% to-emerald-300 to-90%">
+
+            <div class=" h-96 drop-shadow-xl ">
+                <div class="flex justify-center items-center h-full ">
+                    <div>
+                        <div>icon</div>
+                        <div>Shared Inbox</div>
+                        <div class="underline decoration-sky-500">Message</div>
+                    </div>
                 </div>
 
             </div>
-            <div class="">
-                <div class="">
-                    <div>icon</div>
-                    <div>Shared Inbox</div>
-                    <div>Message</div>
+
+            <div class="  h-96 drop-shadow-xl ">
+                <div class="flex justify-center items-center h-full">
+                    <div>
+                        <div>icon</div>
+                        <div>Shared Inbox</div>
+                        <div>Message</div>
+                    </div>
                 </div>
             </div>
-            <div class="">
-                <div class="">
-                    <div>icon</div>
-                    <div>Shared Inbox</div>
-                    <div>Message</div>
+            <div class="  h-96  drop-shadow-xl ">
+                <div class="flex justify-center items-center h-full">
+                    <div>
+                        <div>icon</div>
+                        <div>Shared Inbox</div>
+                        <div>Message</div>
+                    </div>
                 </div>
             </div>
-            <div class="">
-                <div class="">
-                    <div>icon</div>
-                    <div>Shared Inbox</div>
-                    <div>Message</div>
+            <div class=" h-96 drop-shadow-xl ">
+                <div class="flex justify-center items-center h-full">
+                    <div class="">
+                        <div>icon</div>
+                        <div>Shared Inbox</div>
+                        <div>Message</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="text-center text-black text-5xl h-40 border items-center">
-            What you Can do with ReportGovBD
+        <div class="flex text-center text-black text-5xl h-40 items-center justify-center ">
+            <p class="">
+                What you Can do with ReportGovBD
+            </p>
         </div>
 
     </div>

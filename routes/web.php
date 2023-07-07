@@ -24,8 +24,8 @@ use Inertia\Inertia;
 */
 
 // Route::get('/', function () {
-    // return view('welcome');
-    // return view('admin.home');
+// return view('welcome');
+// return view('admin.home');
 // });
 
 Route::get('/', [ContentController::class, 'index']);
@@ -52,11 +52,17 @@ Route::resource('todos', TodoController::class);
 Route::post('/logout', [UserController::class, 'logout'])->name('auth.logout');
 
 // Database Test
-Route::get('/dbtest',[databaseController::class,'test']);
+Route::get('/dbtest', [databaseController::class, 'test']);
 
 
+
+
+// test routes
+Route::get('/check', function () {
+    return view('test');
+
+});
 // fallback routes
 Route::fallback(function () {
     return view('error');
 });
-
