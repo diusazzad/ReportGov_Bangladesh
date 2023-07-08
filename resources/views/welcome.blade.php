@@ -85,7 +85,7 @@
         </div>
 
         <div
-            class="grid grid-cols-4 text-3xl m-3 p-1 text-black italic font-sans tracking-widest uppercase bg-gradient-to-r from-indigo-200 from-10% via-sky-100 via-40% to-emerald-300 to-90%">
+            class="grid grid-cols-4 text-3xl m-3 pl-10 rounded-2xl text-black italic font-sans tracking-widest uppercase bg-gradient-to-r from-indigo-200 from-10% via-sky-100 via-40% to-emerald-300 to-90%">
 
             <div class=" h-96 drop-shadow-xl ">
                 <div class="flex justify-center items-center h-full ">
