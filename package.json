@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@heroicons/vue": "^2.0.18",
-        "bootstrap-vue": "^2.23.1"
+        "bootstrap-vue": "^2.23.1",
+        "three": "^0.154.0"
     }
 }
