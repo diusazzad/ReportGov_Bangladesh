@@ -1,0 +1,32 @@
+body{
+    height: 500vh;
+    margin: 0;
+}
+
+
+.line-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  svg {
+    display: inline-block;
+    height: 100%;
+  }
+
+  section{
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    font-size: 4em;
+  }
+
+  .one{
+    background: url('/public/welcome/img/a.jpg');
+    background-size: cover;
+  }

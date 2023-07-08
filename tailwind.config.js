@@ -7,6 +7,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            height: {
+                'vh-500': '500vh',
+              },
             fontSize: {
                 // '2xl': '1.5rem', // Example for h1
                 // 'xl': '1.25rem', // Example for h2
@@ -22,7 +25,8 @@ module.exports = {
                     '0 45px 65px rgba(0, 0, 0, 0.15)'
                 ]
             },
-            
+
+
         },
     },
     plugins: [
